@@ -100,6 +100,7 @@ const Upload = ({ navigationItems, categoriesType }) => {
       setFormErrors(validator.setErrors({image: validator.errors().first('uploadedFile')}))
       return
     }
+    setFormErrors(validator.clearErrors('uploadedFile', 'image'));
 
     const uploadResult = await fetch('/api/upload', {
       method: 'POST',
